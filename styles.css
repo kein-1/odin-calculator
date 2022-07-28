@@ -9,7 +9,8 @@ button{
 
 .numb-ops-wrapper{
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    
 }
 .zero{
     width:110px;
@@ -25,4 +26,10 @@ button{
 
 .decimal{
     font-size: larger;
+}
+
+.operations{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
