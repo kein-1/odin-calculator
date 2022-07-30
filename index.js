@@ -4,7 +4,6 @@ const OPERATIONS = 4
 
 const opSymbolsFA = ["fa-solid fa-plus","fa-solid fa-minus",
                     "fa-solid fa-xmark","fa-solid fa-percentage"]
-// const numbSymbolsFA = ["fa-1","fa-2","fa-3","fa-4", ]
 const addSubMultDivi = ["+","-","x","/"]
 let currVal = ""
 
@@ -49,7 +48,6 @@ function loadCalc(){
 
     newNumb.addEventListener("click", () => {
         currVal += "0"
-        // console.log(newNumb.innerText)
         calcHeaderVal.innerText = currVal
         console.log(currVal)
 
@@ -58,10 +56,6 @@ function loadCalc(){
     newNumb.appendChild(temp)
 
 
-    // let equals = document.createElement("button")
-    // equals.setAttribute("class","equals")
-    // equals.setAttribute("id", "equals")
-    // equals.innerText = '=';
     let decimal = document.createElement("button")
     let tempDiv = document.createElement("div")
     let temp1 = document.createElement("i")
@@ -73,7 +67,6 @@ function loadCalc(){
 
     decimal.addEventListener("click", () => {
         currVal += "."
-        // console.log(newNumb.innerText)
         calcHeaderVal.innerText = currVal
         console.log(currVal)
 
@@ -98,7 +91,6 @@ function loadOperations (){
         newOperation.setAttribute("id", `${addSubMultDivi[i]}`)
         newOperation.addEventListener("click", () => { 
         currVal += addSubMultDivi[i]
-        // console.log(newNumb.innerText)
         calcHeaderVal.innerText = currVal
         console.log(currVal)
         return
@@ -106,36 +98,28 @@ function loadOperations (){
 
         temp.className = `${opSymbolsFA[i]}`
         calcHeaderVal.innerText = currVal
-        // newOperation.innerText = opSymbol
         operations.appendChild(newOperation)
         newOperation.appendChild(temp)
     }
 }
 
 function loadColumn3(){
-    let equalSymbol = document.createElement("button")
-    let backSpace = document.createElement("button")
+    let squareRoot = document.createElement("button")
+    let power = document.createElement("button")
     let temp1 = document.createElement("i")
     let temp2 = document.createElement("i")
     
-    equalSymbol.setAttribute("id", "equals")
-    equalSymbol.setAttribute("class","equals")
-    
-    equalSymbol.onclick = calculateResults
+    temp1.className = "fa fa-square-root-variable"
+    temp2.className = "fa fa-superscript"
 
-    backSpace.setAttribute("id","backSpace")
-    backSpace.setAttribute("class","backSpace")
-    
-    backSpace.onclick = backSpaceFunct
+    squareRoot.onclick = squareRootFunct
+    power.onclick = raiseToPower
 
-    temp1.className = "fa-solid fa-equals"
-    temp2.className = "fa-solid fa-arrow-left"
+    column3.appendChild(squareRoot)
+    squareRoot.appendChild(temp1)
 
-
-    column3.appendChild(equalSymbol)
-    column3.appendChild(backSpace)
-    equalSymbol.append(temp1)
-    backSpace.append(temp2)
+    column3.appendChild(power)
+    power.appendChild(temp2)
 
 
 }
@@ -144,33 +128,36 @@ function loadColumn3(){
 function loadColumn4(){
 
     let reset = document.createElement("button")
-    
+    let equalSymbol = document.createElement("button")
+    let backSpace = document.createElement("button")
+    let temp1 = document.createElement("i")
+    let temp2 = document.createElement("i")
+
+
     reset.setAttribute("id", "reset")
     reset.setAttribute("id", "reset")
     reset.innerText = "C"
     reset.onclick = resetFunct
+
+    equalSymbol.setAttribute("id", "equals")
+    equalSymbol.setAttribute("class","equals")
+    equalSymbol.onclick = calculateResults
+
+    backSpace.setAttribute("id","backSpace")
+    backSpace.setAttribute("class","backSpace")
+    backSpace.onclick = backSpaceFunct
+
+    temp1.className = "fa-solid fa-equals"
+    temp2.className = "fa-solid fa-arrow-left"
+
     column4.appendChild(reset)
+    column4.appendChild(equalSymbol)
+    column4.appendChild(backSpace)
 
-
+    equalSymbol.append(temp1)
+    backSpace.append(temp2)
 }
 
-
-
-
-
-// function typeOfOp(op){
-
-//     switch(op){
-//         case 0:
-//             return '+'
-//         case 1:
-//             return '-'
-//         case 2:
-//             return '*'
-//         case 3:
-//             return '/'
-//     }
-// }
 
 
 function operationsFunct(i,a,b){
@@ -199,8 +186,6 @@ function calculateResults(){
     }
     if (currVal.includes('-')) {
         let values = currVal.split("-")
-        // console.log(values)
-        // console.log(subtract(Number(values[0]), Number(values[1])))
         let newVal = Number(values[0]) - Number(values[1])
         currVal = newVal
         calcHeaderVal.innerText = newVal
@@ -238,6 +223,19 @@ function backSpaceFunct(){
     currVal = currVal.slice(0,-1)
     console.log(currVal);
     calcHeaderVal.innerText = currVal
+}
+
+function squareRootFunct(){
+    currVal = Math.sqrt(Number(currVal))
+    calcHeaderVal.innerText = currVal
+
+}
+
+
+function raiseToPower(){
+    currVal = Math.pow(Number(currVal),2)
+    calcHeaderVal.innerText = currVal
+
 }
 
 

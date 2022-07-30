@@ -55,9 +55,7 @@ button{
     
 }
 
-#+{
-    background-color: black;
-}
+
 
 .results-header{
     border: 3px solid black;
@@ -94,7 +92,7 @@ button{
     font-size: xx-large;
 }
 
-.operations, .column-3{
+.operations, .column-3, .column-4{
     display: flex;
     flex-direction: column;
     gap: 10px;
