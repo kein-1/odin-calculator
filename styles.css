@@ -1,5 +1,6 @@
 body {
     padding: 200px;
+    background-color: beige;
 }
 
 button{
@@ -7,18 +8,58 @@ button{
     height: 50px;
     border-radius: 25px;
     font-size: larger;
-
 }
 
+#1{
+    background-color: black;
+}
 
+.wrapper{
+    border: 5px black solid;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+    width: 440px;
+    height: 420px;
+    justify-content: center;
+    background-color: wheat;
+}
+
+.numbers > button{
+    background-color: pink;
+}
+
+.operations > button{
+    background-color: lavender;
+}
+.column-3 > button{
+    background-color: lightgray;
+}
+
+.column-4 > button{
+    background-color: lightcoral;
+}
+
+.header{
+    padding: 10px;
+    text-align: center;
+}
 
 .calculator-cont{
     gap: 10px;
     display: flex;
     flex-direction: column;
-    width: 250px;
-    height: 360px;
+    width: auto;
+    height: 350px;
+    padding: 10px;
+    /* background-color: cornflowerblue; */
+    justify-content: center;
+    
+}
 
+#+{
+    background-color: black;
 }
 
 .results-header{
@@ -26,6 +67,11 @@ button{
     text-align: right;
     padding: 10px;
     font-size: large;
+    font-weight: bolder;
+    width: auto;
+    height: 20px;
+    justify-content: center;
+    background-color: whitesmoke;
 }
 
 .numb-ops-wrapper{
@@ -51,12 +97,12 @@ button{
     font-size: larger;
 }
 
-.operations{
+.operations, .column-3{
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.equals{
+/* .equals,.reset{
     width:auto;
-}
+} */
