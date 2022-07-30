@@ -2,7 +2,8 @@
 const SIZE = 9
 const OPERATIONS = 4
 
-const opSymbolsFA = ["fa-plus","fa-minus","fa-multiply","fa-percent"]
+const opSymbolsFA = ["fa-solid fa-plus","fa-solid fa-minus",
+                    "fa-solid fa-xmark","fa-solid fa-percentage"]
 // const numbSymbolsFA = ["fa-1","fa-2","fa-3","fa-4", ]
 const addSubMultDivi = ["+","-","x","/"]
 let currVal = ""
@@ -63,12 +64,15 @@ function loadCalc(){
     // equals.innerText = '=';
     let decimal = document.createElement("button")
     let tempDiv = document.createElement("div")
+    let temp1 = document.createElement("i")
+    temp1.className = `fa fa-period`
+
     decimal.setAttribute("class","decimal")
     decimal.setAttribute("id","decimal")
     decimal.innerText = "."
 
     decimal.addEventListener("click", () => {
-        currVal += decimal.innerText
+        currVal += "."
         // console.log(newNumb.innerText)
         calcHeaderVal.innerText = currVal
         console.log(currVal)
@@ -77,6 +81,8 @@ function loadCalc(){
     
     numbers.appendChild(tempDiv)
     numbers.appendChild(decimal)
+    decimal.appendChild(temp1)
+
 
     loadOperations()
     loadColumn3()
@@ -98,7 +104,7 @@ function loadOperations (){
         return
     })
 
-        temp.className = `fa ${opSymbolsFA[i]}`
+        temp.className = `${opSymbolsFA[i]}`
         calcHeaderVal.innerText = currVal
         // newOperation.innerText = opSymbol
         operations.appendChild(newOperation)
@@ -109,20 +115,27 @@ function loadOperations (){
 function loadColumn3(){
     let equalSymbol = document.createElement("button")
     let backSpace = document.createElement("button")
+    let temp1 = document.createElement("i")
+    let temp2 = document.createElement("i")
     
     equalSymbol.setAttribute("id", "equals")
     equalSymbol.setAttribute("class","equals")
-    equalSymbol.innerText = "="
+    
     equalSymbol.onclick = calculateResults
 
     backSpace.setAttribute("id","backSpace")
     backSpace.setAttribute("class","backSpace")
-    let dummy = String.fromCodePoint(8592);
-    backSpace.innerText = dummy
+    
     backSpace.onclick = backSpaceFunct
+
+    temp1.className = "fa-solid fa-equals"
+    temp2.className = "fa-solid fa-arrow-left"
+
 
     column3.appendChild(equalSymbol)
     column3.appendChild(backSpace)
+    equalSymbol.append(temp1)
+    backSpace.append(temp2)
 
 
 }

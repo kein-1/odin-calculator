@@ -10,9 +10,6 @@ button{
     font-size: larger;
 }
 
-#1{
-    background-color: black;
-}
 
 .wrapper{
     border: 5px black solid;
@@ -94,7 +91,7 @@ button{
 }
 
 .decimal{
-    font-size: larger;
+    font-size: xx-large;
 }
 
 .operations, .column-3{
